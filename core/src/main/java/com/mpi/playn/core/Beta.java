@@ -122,6 +122,21 @@ public class Beta implements Game, Keyboard.Listener {
   public void update(float delta) {
 	  
 	  player.setAcceleration(0, 0);
+	      
+      if (controlLeft) {
+           player.ax = -1.0;
+         }
+         if (controlRight) {
+           player.ax = 1.0;
+         }
+         if (controlUp) {
+           player.ay = -1.5;
+         }
+         if (controlDown) {
+           player.ay = 2.0;
+         }
+
+         for(Ship s : entities) updateShip(s, delta / 1000);
 	  
 	      ++updateCounter;
   }
